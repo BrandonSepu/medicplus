@@ -1,125 +1,119 @@
 {% load static %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="text/css" href="{% static 'app/img/IART_LOGO_WEB.png' %}">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+ 
     {% block css %}
-            
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
     {% endblock css %}
-    <link rel="stylesheet" href="{% static 'app/css/footer.css' %}">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'index' %}">
-            <img src="{% static 'app/img/IART_LOGO_WEB_opt.png'%}" alt="logo iart" width="40" height="40" class="d-inline-block align-text">
-            iArt
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'index' %}">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'product' %}">Galeria de Trabajos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'orderUser' %}">Fabrica tu Cuadro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">Contacto</a>
-                    </li>
-                </ul>
-            </div> 
-            <ul class="navbar-nav">
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'profile' %}">Mi Cuenta: @{{ user.username }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Salir</a>
-                    </li>
-                    {%if user.username == 'brandworkout' or user.username == 'imagineart'%}
-                        <li class="nav-item">
-                            <a class="nav-link bg-warning" href="{% url 'iart_admin' %}"> Admin </a>
-                        </li>
-                    {%endif%}
-                {%else%}        
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}"> Registro </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}"> Iniciar Sesion </a>
-                    </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
+
+    
+</head>
+<body>
+    
+    <!--NAVBAR-->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="{% url 'index' %}">
+        <img class="imglogo"src="{% static 'app/img/logo_medicplus.png'%}" width="105" height="40" class="d-inline-block align-top" alt="logo">
+    </a>
+    <a class="navbar-brand" href="{% url 'index' %}">MEDIC PLUS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only"></span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'tomahora' %}">Reserva tu hora <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="">Areas Médicas</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="">Especialistas</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="">Exámenes</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="">Contáctanos</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+    <!--Contenido-->
+
     {% block contenido %}
 
     {% endblock contenido %}
-     <!-- Footer -->
-    <footer class="site-footer bg-dark">
-        <div class="container">
-            <div class="row">
-            <div class="col-sm-12 col-md-6">
-                <h6>Acerca</h6>
-                <p class="text-justify">www.imagineart.cl</p>
-                <p class="text-justify">Somos una imprenta onlie Chilena especializada en la fabricacion de Cuadros, Posters y Etiquetas.
-                Contamos con equipo de Diseñadores especializados en la creación de etiquetas para todos tus productos.
-                Despachamos a todo chile mediante Starken, Correos de Chile y Chile Express. 
-                Trabajamos con los mejores materiales del mercado, garantizados durante 3 años por la Fabrica.
-                </p>
-                <p class="text-justify"><i>Decora sin limites </i></p>
-            </div>
 
-            <div class="col-xs-6 col-md-3">
-                <h6>Legal</h6>
-                <ul class="footer-links">
-                <li><a href="{% url 'terms' %}">terminos y Condiciones</a></li>
-                
-                </ul>
-            </div>
+    <!--Footer-->
 
-            <div class="col-xs-6 col-md-3">
-                <h6>Nosotros</h6>
-                <ul class="footer-links">
-                    <li><a href="{% url 'equipo' %}">Equipo iArt</a></li>
-                    <li><a href="{% url 'contact' %}">Contactanos</a></li>
-                    <li><a href="{% url 'trabajo' %}">Trabaja con nosotros</a></li>
-                    <li><a href="https://www.instagram.com/decoiart.cl/">Instagram</a></li>
-                </ul>
-            </div>
-            </div>
-            <hr>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright &copy; 2020 All Rights Reserved by imagineArt.
-                    </p>
-                </div>
-            </div>
-        </div>
+    <footer class="footer">
+      <div class="container">
+      <div class="row">
+      <div class=" col-sm-4 col-md col-sm-8  col-12 col">
+      <h5 class="headin5_amrc col_white_amrc pt2">GRUPO ZERO</h5>
+      <!--headin5_amrc-->
+      <p class="mb10">Somos un grupo de artistas dedicados a la pintura, escultura, orfebrería y al tejido artesanal además de otras expresiones artísticas</p>
+      <p><i class="fa fa-location-arrow"></i> Nos ubicamos en: <br> Santa María 2321, Peñalolen</p>
+      <p><i class="fa fa-phone"></i>  +56931189636  </p>
+      <p><i class="fa fa fa-envelope"></i> obrasdearte@gmail.com </p>
+      </div>
+  
+      <div class=" col-sm-4 col-md col-7 col">
+      <h5 class="headin5_amrc col_white_amrc pt2">MAPA</h5>
+      <!--headin5_amrc-->
+      <div><img src="{% static 'app/img/mapa.png'%}" width="180" height="200" alt="mapa de la empresa"></div>
+      <!--footer_ul_amrc ends here-->
+      </div>
+      
+      <div class=" col-sm-4 col-md  col-8 col">
+      <h5 class="headin5_amrc col_white_amrc pt2">Redes Sociales</h5>
+      <!--headin5_amrc-->
+      <ul class="footer_ul_amrc">
+      <div><img src="{% static 'app/img/facebook.png'%}" width="30" height="30" alt="mapa de la empresa"> Medic Plus</div>
+      <div><img src="{% static 'app/img/instagram.png'%}" width="30" height="30" alt="instagram"> Medic_Plus</div>
+      <div><img src="{% static 'app/img/twitter.png'%}" width="30" height="30" alt="twitter"> Medic_Plus</div>
+      <div><img src="{% static 'app/img/whatsapp.png'%}" width="30" height="30" alt="whatsapp">  +56 931189636</div>
+      </ul>
+      <!--footer_ul_amrc ends here-->
+      </div>
+      
+      
+      <div class=" col-sm-4 col-md  col-12 col">
+      <!--headin5_amrc ends here-->
+      <h5 class="headin5_amrc col_white_amrc pt2">Logo</h5>
+      <ul class="footer_ul2_amrc">
+      <div><img class="img" src="{% static 'app/img/logo_medicplus.png'%}" width="200" height="200" alt="logo de la empresa"></div>
+      </ul>
+      <!--footer_ul2_amrc ends here-->
+      </div>
+      </div>
+      <ul class="foote_bottom_ul_amrc">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'tomahora' %}">Reserva tu hora</a></li>
+        <li><a href="">Examenes</a></li>
+        <li><a href="">Especialistas</a></li>
+      </ul>
+        <!--foote_bottom_ul_amrc ends here-->
+      </div>
     </footer>
-    <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
-  </body>
+
+</body>
 </html>
