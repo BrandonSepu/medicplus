@@ -70,6 +70,11 @@ h2{
    background-color: #f5f5f5;
 }
 
+.imgcontact{
+  height: 250px;
+  width: 250px;
+}
+
 /*footer*/
 .col_white_amrc { color:rgb(255, 255, 255);}
 footer { width:100%; background-color:rgb(46, 189, 214); min-height:250px; padding:10px 0px 25px 0px ;}

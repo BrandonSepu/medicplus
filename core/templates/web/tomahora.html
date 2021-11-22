@@ -9,54 +9,53 @@
   <hr>
   <div class= "container">
     <h2>Agenda tu hora</h2>
-        <h2>Portal Medic+</h2>
-            <form class="label" novalidate>
+        <h2>Portal Centro Medico Galenos</h2>
+            <form id="tomarhora" role="form" autocomplete="on" class="form" method="POST">
+                {% csrf_token %}
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
-                    <label>Nombre:</label>
-                    <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
-                    <div class="valid-tooltip">
-                        Looks good!
-                    </div>
+                        <label>Nombre:</label>
+                        <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                    <label for="validationTooltip02">Last name</label>
-                    <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
-                    <div class="valid-tooltip">
-                        Looks good!
-                    </div>
+                        <label for="validationTooltip02">Last name</label>
+                        <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
-                    <label for="validationTooltip03">City</label>
-                    <input type="text" class="form-control" id="validationTooltip03" required>
-                    <div class="invalid-tooltip">
-                        Please provide a valid city.
-                    </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                    <label for="validationTooltip04">State</label>
-                    <select class="custom-select" id="validationTooltip04" required>
-                        <option selected disabled value="">Choose...</option>
-                        <option>...</option>
-                    </select>
-                    <div class="invalid-tooltip">
-                        Please select a valid state.
-                    </div>
+                        <label for="validationTooltip03">City</label>
+                        <input type="text" class="form-control" id="validationTooltip03" required>
+                        <div class="invalid-tooltip">
+                            Please provide a valid city.
+                        </div>
                     </div>
                     <div class="col-md-3 mb-3">
-                    <label for="validationTooltip05">Zip</label>
-                    <input type="text" class="form-control" id="validationTooltip05" required>
-                    <div class="invalid-tooltip">
-                        Please provide a valid zip.
+                        <label for="validationTooltip04">State</label>
+                        <select class="custom-select" id="validationTooltip04" required>
+                            <option selected disabled value="">Choose...</option>
+                            <option>...</option>
+                        </select>
+                        <div class="invalid-tooltip">
+                            Please select a valid state.
+                        </div>
                     </div>
-                    </div>
-                    
+                    <div class="col-md-3 mb-3">
+                        <label for="validationTooltip05">Zip</label>
+                        <input type="text" class="form-control" id="validationTooltip05" required>
+                        <div class="invalid-tooltip">
+                            Please provide a valid zip.
+                        </div>
+                    </div> 
                 </div>
                 <button class="btn btn-primary" type="submit">Submit form</button>
             </form>
-
             <hr>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
