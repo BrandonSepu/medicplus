@@ -23,5 +23,5 @@ class CustomUserCreationForm(UserCreationForm):
 class horaMedicaForm(forms.ModelForm):
     class Meta : 
         model = horaMedica
-        fields = fields = '__all__'
+        fields = '__all__'
 

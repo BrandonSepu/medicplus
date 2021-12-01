@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import pais, region, gender, comuna, paciente, usercontact, pago, areaMedica, doctor, \
-comprobante, horaMedica, informe, secretaria, tipoPago
+from .models import hora, pais, region, gender, comuna, paciente, usercontact, pago, areaMedica, doctor, \
+comprobante, horaMedica, informe, secretaria, tipoPago, hora
 
 class userscontact(admin.ModelAdmin):
     list_display = ["nameContact", "email", "msn", "created_date"]
@@ -24,3 +24,4 @@ admin.site.register(pago)
 admin.site.register(areaMedica)
 admin.site.register(doctor)
 admin.site.register(comprobante)
+admin.site.register(hora)

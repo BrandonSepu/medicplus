@@ -2,70 +2,63 @@
 {% load static %}
 {% block contenido %}
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">  
-  <link rel="stylesheet" type="text/css"  href="{% static 'app/css/index.css' %}">
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/register.css' %}">
+    {% endblock css %}
 
-<!--CARROUSEL-->
-  <hr>
-  <div class= "container">
-    <h2>Agenda tu hora</h2>
-        <h2>Portal Centro Medico Galenos</h2>
-            <form id="tomarhora" role="form" autocomplete="on" class="form" method="POST">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div  class="col-md-6 mb-3">
-                        <label class="label">Nombres:</label>
-                        <input type="text" class="form-control" id="validationTooltip01" placeholder="Marina" required>
-                        <div class="valid-tooltip">
-                            Looks good!
-                        </div>
+  <div class="signup-form">
+        <form role="form" method="POST">
+            {% csrf_token %}
+            <h2>Toma de Hora Centro Medico Galenos</h2>
+            <p class="hint-text">Toma tu hora medica.</p>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label bg-info">consulta:</label>
+                        {{formTH.consulta}}
+                        <!--<input type="text"lass="form-control" name="first_name" placeholder="First Name" required="required">-->
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="label">Apellidos:</label>
-                        <input type="text" class="form-control" id="validationTooltip02" placeholder="González"required>
-                        <div class="valid-tooltip">
-                            Looks good!
-                        </div>
+                    <div class="col">
+                        <label class="form-label bg-info">fkPaciente:</label>
+                        {{formTH.fkPaciente}}
+                        <!--<input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required">-->
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="col-md-3 mb-3">
-                        <label class="label">Rut con puntos y guión:</label>
-                        <input type="text" class="form-control"  placeholder="24.856.881.k" required>
-                        <div class="invalid-tooltip">
-                        </div>
+                    <div class="col">
+                        <label class="form-label bg-info">fkHora:</label>
+                        {{formTH.fkHora}}
+                        <!--<input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required">-->
                     </div>
-                    <div class="col-md-3 mb-3">
-                        <label class="label">Fecha de la cita:</label>
-                        <input type="date" class="form-control" id="validationTooltip03" required>
-                        <div class="invalid-tooltip">
-                        </div>
+                    <div class="col">
+                        <label class="form-label bg-info">fecha:</label>
+                        {{formTH.fecha}}
+                        <!--<input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required">-->
                     </div>
-                    <div class="col-md-3 mb-3">
-                        <label class="label"class="label">Elige a tu médico:</label>
-                        <select class="custom-select" id="validationTooltip04" required>
-                            <option selected disabled value="">Médico</option>
-                            <option>Arturo Vazquéz</option>
-                            <option>José Bobadilla</option>
-                        </select>
-                        <div class="invalid-tooltip">
-                            Please select a valid state.
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label class="label">Hora de la cita:</label>
-                        <input type="time" class="form-control" id="validationTooltip05" required>
-                        <div class="invalid-tooltip">
-                            Please provide a valid zip.
-                        </div>
-                    </div> 
-                </div>
-                <button class="btn btn-primary" type="submit">Submit form</button>
-            </form>
+                </div>        	
+            </div>
+            <div class="form-group">
+                <label class="form-label bg-info">fkMedico:</label>
+                {{formTH.fkMedico}}
+                <!--<input type="email" class="form-control" name="email" placeholder="Email" required="required">-->
+            </div>
+            <div class="form-group">
+                <label class="form-label bg-info">fkTipoPago</label>
+                {{formTH.fkTipoPago}}
+                <!--<input type="password" class="form-control" name="password" placeholder="Password" required="required">-->
+            </div>
             <hr>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-
+            <div class="form-group">
+                <label class="form-label bg-info">fkPago:</label>
+                {{formTH.fkPago}}
+                <!--<input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">-->
+            </div>      
+            <div class="form-group">
+                <label class="form-check-label"><input type="checkbox" required="required"> Acepto los <a href="#">Terminos y </a> &amp; <a href="#">Politica de privacidad</a></label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-info btn-lg btn-block">Tomar Hora / Realizar Pago</button>
+            </div>
+        </form>
+    </div>
+    
 {% endblock contenido %}

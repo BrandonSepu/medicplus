@@ -49,7 +49,9 @@ class paciente(models.Model):
 
 
     def __str__(self):
-        return self.nameContact
+        cadena=str(self.nomPac)+" "+ str(self.aPatPac) + " " + str(self.rutPac)
+        return cadena
+
 
 # TABLA CONTACTO
 class usercontact(models.Model):
@@ -84,7 +86,8 @@ class doctor(models.Model):
     adressDoc = models.CharField(max_length=70)
 
     def __str__(self):
-        return self.nomDoc
+        cadena=str(self.nomDoc)+" "+ str(self.aPatDoc) + " " + str(self.fkAMedica)
+        return cadena
 
 # TABLA SECRETARIA
 class secretaria(models.Model):
@@ -99,7 +102,8 @@ class secretaria(models.Model):
     adressSec = models.CharField(max_length=70)
 
     def __str__(self):
-        return self.nomSec
+        cadena=str(self.nomSec)+" "+ str(self.aPatSec) + " " + str(self.rutSec)
+        return cadena
 
 # TABLA TIPO PAGO      
 class tipoPago(models.Model):
@@ -113,29 +117,37 @@ class tipoPago(models.Model):
 class pago(models.Model):
 
     fkAreaMedica = models.ForeignKey(areaMedica, on_delete=models.CASCADE)
-    valorPAg =  models.IntegerField()
+    valorPAg =  models.CharField(max_length=50)
 
     def __str__(self):
         return self.valorPAg
 
+class hora(models.Model):
+    
+    hora = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.hora
+
 # TABLA HORA MDEICA
 class horaMedica(models.Model):
 
-    consulta = models.CharField( max_length=100)
-    hora = models.CharField( max_length=5)
-    fecha = models.DateTimeField(auto_now_add=False,auto_now=False,null=False,blank=True);
+    consulta = models.TextField( max_length=400)
+    fkHora = models.ForeignKey(hora, on_delete=models.CASCADE)
+    fecha = models.DateField(auto_now_add=False,auto_now=False,null=True,blank=True);
     fkPaciente = models.ForeignKey(paciente, on_delete=models.CASCADE)
     fkTipoPago = models.ForeignKey(tipoPago, on_delete=models.CASCADE)
     fkPago = models.ForeignKey(pago, on_delete=models.CASCADE)
     fkMedico = models.ForeignKey(doctor, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.consulta
+        cadena=str(self.fecha)+" a las "+ str(self.fkHora) + " por " + str(self.fkPaciente)
+        return cadena
 
 # TABLA INFORME
 class informe(models.Model):
 
-    fechaIfo = models.DateTimeField(default=timezone.now)
+    fechaIfo = models.DateTimeField(auto_now_add=False,auto_now=False,null=True,blank=True)
     fkSecretaria = models.ForeignKey(secretaria, on_delete=models.CASCADE)
     fkHoraMedica = models.ForeignKey(horaMedica, on_delete=models.CASCADE)
     comision = models.IntegerField();
@@ -145,7 +157,7 @@ class informe(models.Model):
 
 class comprobante(models.Model):
 
-    fechaComPago = models.DateTimeField(default=timezone.now)
+    fechaComPago = models.DateTimeField(auto_now_add=False,auto_now=False,null=True,blank=True)
     fkHoraMedica = models.ForeignKey(horaMedica, on_delete=models.CASCADE)
     
     def __str__(self):

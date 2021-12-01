@@ -4,7 +4,7 @@
 {% block contenido %}
   
     {% block css %}
-        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'app/css/index.css' %}">
         <link rel="stylesheet" href="{% static 'app/css/register.css' %}">
     {% endblock css %}
 
@@ -31,45 +31,41 @@
                         <!--<input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required">-->
                     </div>
                     <div class="col">
-                        <label class="form-label bg-info">Rut:</label>
+                        <label class="form-label bg-info">Genero:</label>
                         {{form.fkGender}}
                         <!--<input type="text" class="form-control" name="last_name" placeholder="Last Name" required="required">-->
                     </div>
                 </div>        	
             </div>
             <div class="form-group">
-                <label class="form-label bg-info">Rut:</label>
+                <label class="form-label bg-info">Email:</label>
                 {{form.emailPac}}
                 <!--<input type="email" class="form-control" name="email" placeholder="Email" required="required">-->
             </div>
             <div class="form-group">
-                <label class="form-label bg-info">Rut:</label>
-                {{form.bornDatePac}}
+                <label class="form-label bg-info">Fecha Nacimiento: (YYYY-MM-DD)</label>
+                {{form.bornDatePAc}}
                 <!--<input type="password" class="form-control" name="password" placeholder="Password" required="required">-->
             </div>
+            <hr>
             <div class="form-group">
-                <label class="form-label bg-info">Rut:</label>
-                {{form.adressPAc}}
-                <!--<input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">-->
-            </div>
-            <div class="form-group">
-                <label class="form-label bg-info">Rut:</label>
-                {{form.adressPAc}}
-                <!--<input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">-->
-            </div>
-            <div class="form-group">
-                <label class="form-label bg-info">Rut:</label>
+                <label class="form-label bg-info">Comuna:</label>
                 {{form.fkComuna}}
                 <!--<input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">-->
-            </div>       
+            </div>     
             <div class="form-group">
-                <label class="form-check-label"><input type="checkbox" required="required"> Acepto los <a href="{% url 'terms' %}">Terminos y </a> &amp; <a href="{% url 'terms' %}">Politica de privacidad</a></label>
+                <label class="form-label bg-info">Direccion:</label>
+                {{form.adressPac}}
+                <!--<input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">-->
+            </div>  
+            <div class="form-group">
+                <label class="form-check-label"><input type="checkbox" required="required"> Acepto los <a href="#">Terminos y </a> &amp; <a href="#">Politica de privacidad</a></label>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-warning btn-lg btn-block">Registrar Cuenta</button>
+                <button type="submit" class="btn btn-info btn-lg btn-block">Registrar Cuenta</button>
             </div>
         </form>
-        <div class="text-center">Tienes una cuenta? <a href="{% url 'login' %}">Inicia Sesión</a></div>
+        <div class="text-center">Tienes una cuenta? <a href="#">Inicia Sesión</a></div>
     </div>
 
 {% endblock contenido %} 
