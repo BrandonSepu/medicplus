@@ -11,7 +11,7 @@
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
-                        <div class="col-sm-8"><h2>Lista de Doctores</h2><b>Centro Medico Galenos</b></div>
+                        <div class="col-sm-8"><h2>Lista de Doctores</h2><h2>Centro Medico Galenos</h2></div>
                     </div>
                 </div>
                 <table class="table table-striped table-hover table-bordered bg-info" >
@@ -22,7 +22,8 @@
                             <th>Rut</th>
                             <th>Area Medica</th>
                             <th>E-mail</th>
-                            <th>Informes</th>
+                            <th>Historial de consultas</th>
+                            <th>Comprobantes</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,8 +35,10 @@
                                 <td>{{p.fkAMedica | title}}</td>
                                 <td>{{p.emailDoc}}</td>
                                 <td>
-                                    <a href="{% url 'informeHoras' p.id%}" class="bg-warning" title="View" data-toggle="tooltip">Generar Informe Consultas Med.</a>
-                                    <a href="{% url 'informePagos' p.id%}" class="bg-warning" title="View" data-toggle="tooltip">Generar Informe Pagos.</a>
+                                    <a href="{% url 'informeHoras' p.id%}" class="bg-warning" title="View" data-toggle="tooltip">Consultas Med</a>
+                                </td>
+                                <td> 
+                                    <a href="{% url 'informePagos' p.id%}" class="bg-warning" title="View" data-toggle="tooltip">Comprobantes</a>
                                 </td>
                             </tr>
                         {% endfor %}   
